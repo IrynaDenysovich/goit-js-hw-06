@@ -4,5 +4,11 @@ let spanText = document.querySelector("span#text");
 inputStyle.addEventListener("input", eventChangeFontSize);
 function eventChangeFontSize(event) {
   let currentValue = event.currentTarget.value;
-  spanText.style.fontSize = currentValue + "px";
+  changeFontSize(currentValue);
 }
+
+function changeFontSize(value) {
+  spanText.style.fontSize = value + "px";
+}
+
+changeFontSize(inputStyle.value);

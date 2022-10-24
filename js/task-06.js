@@ -1,14 +1,14 @@
 let validationInput = document.querySelector("input#validation-input");
-let dataMaxLength = validationInput.getAttribute("data-length");
+let dataMaxLength = Number(validationInput.getAttribute("data-length"));
 
 validationInput.addEventListener("blur", blurCheck);
 function blurCheck(event) {
-  let currentValue = event.currentTarget.value;
-  if (currentValue.length !== Number(dataMaxLength)) {
-    event.currentTarget.classList.add("invalid");
-    event.currentTarget.classList.remove("valid");
+  let target = event.currentTarget;
+  if (target.value.length !== dataMaxLength) {
+    target.classList.add("invalid");
+    target.classList.remove("valid");
   } else {
-    event.currentTarget.classList.remove("invalid");
-    event.currentTarget.classList.add("valid");
+    target.classList.remove("invalid");
+    target.classList.add("valid");
   }
 }

@@ -13,22 +13,9 @@ const images = [
   },
 ];
 
-// let listGallery = document.querySelector("ul.gallery");
-// let arrayImages = [];
-// for (let i= 0; i<images.length; i++){
-//   let element = images[i];
-//   let listLiImg = document.createElement("li");
-//   let imgElement = document.createElement("img");
-//   imgElement.setAttribute("src", element.url);
-//   imgElement.setAttribute("alt", element.alt);
-//   listLiImg.append(imgElement);
-//   arrayImages.push(listLiImg);
-// }
-
 let listGallery = document.querySelector("ul.gallery");
-let arrayImages = images.map(createListElement).join("");
-function createListElement(element) {
-  let listLiImg = `<li class="list-style"><img src=${element.url} alt="${element.alt}"></li>`;
-  return listLiImg;
+let arrayImages = images.map(createListElement);
+function createListElement({url, alt}) {
+  return `<li class="list-style"><img src=${url} alt="${alt}"></li>`;
 }
-listGallery.insertAdjacentHTML("beforeend", arrayImages);
+listGallery.insertAdjacentHTML("beforeend", arrayImages.join(""));
